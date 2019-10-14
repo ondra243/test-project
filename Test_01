@@ -1,0 +1,45 @@
+   class Kata
+    {
+        //int[] arr;
+
+        //public Kata(int[] arr)
+        //{
+        //    this.arr = arr;
+        //}
+
+
+
+        public static int FindEvenIndex(int[] arr)
+        {
+
+            int result = 0;            
+            int pocet = arr.Length;
+            int prava = 0;
+            int leva = 0;
+
+            for (int i = 0; i < pocet; i++)
+            {
+                //spočítá pravou stranu
+                for (int x = i + 1; x < pocet; x++)
+                {
+                    prava = prava + arr[x];
+                    //spočítá levou stranu
+                    for (int z = i -1; z >= 0; z--)
+                    {
+                        leva = leva + arr[z];
+                    }
+                    //prava == leva?
+                    if (leva == prava)
+                    {
+                        result = arr[i];
+
+                    }
+                }
+                prava = 0;
+                leva = 0;
+            };
+            return result;
+        }
+
+    }
+}
